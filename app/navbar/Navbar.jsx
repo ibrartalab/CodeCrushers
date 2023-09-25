@@ -8,10 +8,26 @@ import { AiOutlineInsertRowAbove } from "react-icons/ai";
 import { GiFilmProjector } from "react-icons/gi";
 import { MdOutlineReviews } from "react-icons/md";
 import { FaBars } from "react-icons/fa"; // Hamburger icon
-import { useState } from "react"; // State for mobile menu
+import { useState, useEffect } from "react"; // State for mobile menu
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setScrolling(true);
+    } else {
+      setScrolling(false);
+    }
+  };
 
   const fadeInUp = {
     initial: { opacity: 0, y: 10 },
@@ -21,7 +37,8 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="bg-[#060B27] py-2 border-b border-gray-800 shadow-md z-50 absolute w-full"
+      className={`fixed ${scrolling ? "h-16" : "py-2"
+        } bg-[#060B27] border-b border-gray-800 shadow-md z-50  w-full`}
       initial={{ y: -50 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -52,9 +69,8 @@ export default function Navbar() {
 
         {/* Middle Div: Nav Links (Responsive) */}
         <motion.div
-          className={`lg:flex space-x-8 ${
-            mobileMenuOpen ? "block" : "hidden"
-          } lg:block`}
+          className={`lg:flex space-x-8 ${mobileMenuOpen ? "block" : "hidden"
+            } lg:block`}
           variants={fadeInUp}
           initial="initial"
           animate="animate"

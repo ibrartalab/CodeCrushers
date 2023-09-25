@@ -1,5 +1,5 @@
-import MainPage from "@/pages/mainpage";
-import SecondPage from "@/pages/secondpage";
+import MainPage from "./mainpage/page";
+import SecondPage from "./secondpage/page";
 
 export default function Home() {
   return (

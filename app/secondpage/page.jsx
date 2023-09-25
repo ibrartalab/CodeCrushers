@@ -14,27 +14,28 @@ import { FaLaptop } from "react-icons/fa";
 import { FaLightbulb } from "react-icons/fa";
 import { FaBullseye } from "react-icons/fa";
 import { FaComments } from "react-icons/fa";
+import Link from "next/link";
 
 export default function SecondPage() {
-    const [ref, inView] = useInView({
-        threshold: 0.1,    
+  const [ref, inView] = useInView({
+    threshold: 0.1,
   });
-    const [ref1, inView1] = useInView({
-        threshold: 0.1,    
-    });
-    
-    const [ref2, inView2] = useInView({
-          threshold: 0.1,
-        });
+  const [ref1, inView1] = useInView({
+    threshold: 0.1,
+  });
+
+  const [ref2, inView2] = useInView({
+    threshold: 0.1,
+  });
 
 
   const listItemVariants = {
     hover: {
       scale: 1.05,
-          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-          transition: {
-              duration: 0.5,
-          },
+      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+      transition: {
+        duration: 0.5,
+      },
     },
   };
 
@@ -175,50 +176,60 @@ export default function SecondPage() {
           >
             <div className="max-w-5xl mx-auto py-10 text-center">
               <ul className="list-inside">
-                <motion.div
-                  variants={listItemVariants}
-                  whileHover="hover"
-                  className="mb-4 p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
-                >
-                  <FaCode className="text-2xl text-white mr-2" />
-                  <li className="text-xl">Software Development</li>
-                </motion.div>
+                <Link href="/services">
+                  <motion.div
+                    variants={listItemVariants}
+                    whileHover="hover"
+                    className="mb-4 p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
+                  >
+                    <FaCode className="text-2xl text-white mr-2" />
+                    <li className="text-xl">Software Development</li>
+                  </motion.div>
+                </Link>
 
-                <motion.div
-                  variants={listItemVariants}
-                  whileHover="hover"
-                  className="mb-4 p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
-                >
-                  <FaMobile className="text-2xl text-white mr-2" />
-                  <li className="text-xl">Web and Mobile App Development</li>
-                </motion.div>
+                <Link href="/services">
+                  <motion.div
+                    variants={listItemVariants}
+                    whileHover="hover"
+                    className="mb-4 p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
+                  >
+                    <FaMobile className="text-2xl text-white mr-2" />
+                    <li className="text-xl">Web and Mobile App Development</li>
+                  </motion.div>
+                </Link>
 
-                <motion.div
-                  variants={listItemVariants}
-                  whileHover="hover"
-                  className="mb-4 p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
-                >
-                  <FaCloud className="text-2xl text-white mr-2" />
-                  <li className="text-xl">Cloud Solutions</li>
-                </motion.div>
+                <Link href="/services">
+                  <motion.div
+                    variants={listItemVariants}
+                    whileHover="hover"
+                    className="mb-4 p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
+                  >
+                    <FaCloud className="text-2xl text-white mr-2" />
+                    <li className="text-xl">Cloud Solutions</li>
+                  </motion.div>
+                </Link>
 
-                <motion.div
-                  variants={listItemVariants}
-                  whileHover="hover"
-                  className="mb-4 p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
-                >
-                  <FaPaintBrush className="text-2xl text-white mr-2" />
-                  <li className="text-xl">UI/UX Design</li>
-                </motion.div>
+                <Link href="/services">
+                  <motion.div
+                    variants={listItemVariants}
+                    whileHover="hover"
+                    className="mb-4 p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
+                  >
+                    <FaPaintBrush className="text-2xl text-white mr-2" />
+                    <li className="text-xl">UI/UX Design</li>
+                  </motion.div>
+                </Link>
 
-                <motion.div
-                  variants={listItemVariants}
-                  whileHover="hover"
-                  className="p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
-                >
-                  <FaCheckCircle className="text-2xl text-white mr-2" />
-                  <li className="text-xl">Quality Assurance and Testing</li>
-                </motion.div>
+                <Link href="/services">
+                  <motion.div
+                    variants={listItemVariants}
+                    whileHover="hover"
+                    className="p-4 rounded-lg bg-blue-900 cursor-pointer flex items-center"
+                  >
+                    <FaCheckCircle className="text-2xl text-white mr-2" />
+                    <li className="text-xl">Quality Assurance and Testing</li>
+                  </motion.div>
+                </Link>
               </ul>
             </div>
           </motion.div>

@@ -1,15 +1,14 @@
 "use client";
 import { motion, useAnimation } from "framer-motion";
-import { AiOutlineCloudServer } from "react-icons/ai";
-import { MdDeveloperMode } from "react-icons/md";
 import { useEffect } from "react";
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"; // Import social media icons
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-export default function Home() {
+
+export default function MainPage() {
+
   const controls = useAnimation();
   const iconsControls = useAnimation();
-
   useEffect(() => {
     controls.start({
       opacity: 1,
