@@ -14,6 +14,8 @@ import { FaLaptop } from "react-icons/fa";
 import { FaLightbulb } from "react-icons/fa";
 import { FaBullseye } from "react-icons/fa";
 import { FaComments } from "react-icons/fa";
+import { SiReact, SiMongodb, SiFirebase, SiPython, SiDjango, SiFlask, SiPostgresql, SiMysql } from 'react-icons/si';
+import { DiNodejs } from 'react-icons/di';
 import Link from "next/link";
 
 export default function SecondPage() {
@@ -235,8 +237,24 @@ export default function SecondPage() {
           </motion.div>
         </section>
 
-        {/* About Section */}
+        {/* Add languages used by us */}
         <section className="mt-10">
+          <div
+            className="flex items-center justify-center gap-10"
+          >
+            <SiReact className="text-4xl text-white" />
+            <SiMongodb className="text-4xl text-white" />
+            <SiFlask className="text-4xl text-white" />
+            <SiFirebase className="text-4xl text-white" />
+            <SiPython className="text-4xl text-white" />
+            <SiDjango className="text-4xl text-white" />
+            <SiPostgresql className="text-4xl text-white" />
+          </div>
+        </section>
+
+
+        {/* About Section */}
+        <section className="mt-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -335,15 +353,7 @@ export default function SecondPage() {
               </div>
             </div>
           </motion.div>
-        </section>
-
-        <section className="mt-10">
-          <h2 className="text-2xl font-bold text-green-500 mb-4">Contact Us</h2>
-          <p className="text-lg text-white">
-            Email: CodeCrusherOfficial@gmail.com
-          </p>
-          <p className="text-lg text-white">Address: Lahore, Pakistan, 54000</p>
-        </section>
+        </section>  
       </div>
     </motion.div>
   );

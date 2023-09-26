@@ -2,7 +2,6 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 
 export default function MainPage() {
@@ -55,13 +54,6 @@ export default function MainPage() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.div
-          className="absolute w-16 h-16 bg-green-500 rounded-full"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          style={{ top: "1rem", left: "1rem" }}
-        ></motion.div>
         <div className="text-center">
           <motion.h1
             className="text-5xl font-bold tracking-tight mt-4 "
@@ -129,26 +121,6 @@ export default function MainPage() {
       >
         {/* ... (Services section code) */}
       </motion.div>
-
-      {/* Social Media Icons */}
-      <div className="fixed right-10 top-40 flex flex-col gap-4 items-end">
-        <a href="https://web.facebook.com/profile.php?id=61551713522480&is_tour_dismissed=true">
-          <FaFacebook
-            className="sm:text-3xl cursor-pointer hover:text-blue-700
-        sm:text-white text-lg
-        "
-          />
-        </a>
-        <a href="https://twitter.com/CodeCrushers">
-          <FaTwitter className="sm:text-3xl text-lg cursor-pointer hover:text-blue-700 sm:text-white" />
-        </a>
-        <a href="https://www.instagram.com/codecrushersofficial/">
-          <FaInstagram className="sm:text-3xl text-lg cursor-pointer hover:text-pink-700 sm:text-white" />
-        </a>
-        <a href="https://www.linkedin.com/company/codecrusherofficial/?viewAsMember=true">
-          <FaLinkedin className="sm:text-3xl text-lg cursor-pointer hover:text-blue-900 sm:text-white" />
-        </a>
-      </div>
     </motion.div>
   );
 }

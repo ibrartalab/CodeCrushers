@@ -1,14 +1,14 @@
 "use client";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { AiOutlineInsertRowAbove } from "react-icons/ai";
 import { GiFilmProjector } from "react-icons/gi";
 import { MdOutlineReviews } from "react-icons/md";
-import { FaBars } from "react-icons/fa"; // Hamburger icon
-import { useState, useEffect } from "react"; // State for mobile menu
+import { FaBars } from "react-icons/fa";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,8 +37,9 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed ${scrolling ? "h-16" : "py-2"
-        } bg-[#060B27] border-b border-gray-800 shadow-md z-50  w-full`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-[rgba(6, 11, 39, ${scrolling ? "0.9" : "0"
+        })} backdrop-blur-lg backdrop-filter transition-all duration-500 ${scrolling ? "h-16" : "py-2"
+        } border-b border-gray-800 shadow-md w-full`}
       initial={{ y: -50 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -59,7 +60,6 @@ export default function Navbar() {
           />
         </motion.div>
 
-        {/* Hamburger Icon for Mobile Menu */}
         <div className="lg:hidden">
           <FaBars
             className="text-white text-3xl cursor-pointer"
@@ -67,10 +67,8 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Middle Div: Nav Links (Responsive) */}
         <motion.div
-          className={`lg:flex space-x-8 ${mobileMenuOpen ? "block" : "hidden"
-            } lg:block`}
+          className={`lg:flex space-x-8 ${mobileMenuOpen ? "block" : "hidden"}`}
           variants={fadeInUp}
           initial="initial"
           animate="animate"
@@ -85,11 +83,7 @@ export default function Navbar() {
             </motion.span>
           </Link>
 
-          <Link
-            href="/services"
-            whileHover={{ scale: 1.1 }}
-            className="text-gray-400 hover:underline hover:text-white"
-          >
+          <Link href="/services">
             <motion.span
               className="flex items-center text-gray-400 text-sm hover:underline hover:text-white text-center"
               whileHover={{ scale: 1.1 }}
@@ -99,7 +93,7 @@ export default function Navbar() {
             </motion.span>
           </Link>
 
-          <Link href="/">
+          <Link href="/projects">
             <motion.span
               className="flex items-center text-gray-400 text-sm hover:underline hover:text-white text-center"
               whileHover={{ scale: 1.1 }}
@@ -109,7 +103,7 @@ export default function Navbar() {
             </motion.span>
           </Link>
 
-          <Link href="/">
+          <Link href="/reviews">
             <motion.span
               className="flex items-center text-gray-400 text-sm hover:underline hover:text-white text-center"
               whileHover={{ scale: 1.1 }}
@@ -130,7 +124,6 @@ export default function Navbar() {
           </Link>
         </motion.div>
 
-        {/* Right Div: Contact Button (Responsive) */}
         <motion.button
           className="bg-[#02CC67] text-xs text-white px-4 py-2 rounded-full hover:bg-green-600"
           whileHover={{ scale: 1.1 }}
