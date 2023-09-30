@@ -1,10 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
-import { FiUsers, FiMail, FiMapPin } from 'react-icons/fi';
-import { AiOutlineUsergroupAdd, AiOutlineInsertRowAbove, AiOutlineTeam } from "react-icons/ai";
-import { GiFilmProjector } from "react-icons/gi";
-import { MdOutlineReviews } from "react-icons/md";
-import { FaBars } from "react-icons/fa"; // Hamburger icon
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
+
 import { useEffect } from 'react';
 import { useAnimation } from 'framer-motion';
 import Image from 'next/image';
@@ -102,7 +99,7 @@ const AboutUsPage = () => {
           </motion.span>
         </motion.h1>
 
-        <motion.p className="flex items-center justify-center text-lg mt-4 mb-12 max-w-6xl text-center " variants={fadeInUp}>
+        <motion.p className="flex items-center justify-center text-lg mt-4 mb-12 max-w-6xl italic text-center " variants={fadeInUp}>
           Welcome to CodeCrushers! We are a dedicated team of developers and innovators who are passionate about technology and building high-quality software solutions.
         </motion.p>
 
@@ -172,7 +169,7 @@ const AboutUsPage = () => {
           <p
             className="text-sm italic"
           >
-            A visionary leader at the helm of CodeCrushers, Mansoor Ahmad epitomizes an unwavering dedication to technology and innovation. With a wealth of experience and a steadfast commitment to excellence, Mansoor has adeptly navigated the course of CodeCrushers towards unparalleled success. Possessing a unique ability to transform concepts into reality, Mansoor is more than just a leader; [he] is an inspiration to the entire team. Committed to expanding the horizons of what&apos;s achievable in the tech realm, [his] unshakeable vision has propelled CodeCrushers to the forefront of the industry.
+            A visionary leader at the helm of CodeCrushers, Mansoor Ahmad epitomizes an unwavering dedication to technology and innovation. With a wealth of experience and a steadfast commitment to excellence, Mansoor has adeptly navigated the course of CodeCrushers towards unparalleled success. Possessing a unique ability to transform concepts into reality, Mansoor is more than just a leader; he is an inspiration to the entire team. Committed to expanding the horizons of what&apos;s achievable in the tech realm, his unshakeable vision has propelled CodeCrushers to the forefront of the industry.
           </p>
           <h2 className="text-xl font-semibold mb-4 mt-12 ">Founder</h2>
           <div className="flex items-center space-x-4">

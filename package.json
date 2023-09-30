@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "autoprefixer": "10.4.15",
+    "country-flag-icons": "^1.5.7",
+    "dist": "^0.1.2",
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.1",
     "framer-motion": "^10.16.4",
@@ -21,6 +24,8 @@
     "react-icons": "^4.11.0",
     "react-intersection-observer": "^9.5.2",
     "react-modal": "^3.16.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "3.3.3",
     "vercel": "^32.3.1"
   }

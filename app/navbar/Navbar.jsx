@@ -124,12 +124,14 @@ export default function Navbar() {
           </Link>
         </motion.div>
 
+        <Link href="/contact">
         <motion.button
           className="bg-[#02CC67] text-xs text-white px-4 py-2 rounded-full hover:bg-green-600"
           whileHover={{ scale: 1.1 }}
         >
           Contact
-        </motion.button>
+          </motion.button>
+        </Link>
       </div>
     </motion.nav>
   );

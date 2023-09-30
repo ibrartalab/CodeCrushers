@@ -17,8 +17,33 @@ import { FaComments } from "react-icons/fa";
 import { SiReact, SiMongodb, SiFirebase, SiPython, SiDjango, SiFlask, SiPostgresql, SiMysql } from 'react-icons/si';
 import { DiNodejs } from 'react-icons/di';
 import Link from "next/link";
+import { useState } from "react";
 
 export default function SecondPage() {
+  const [showVideo, setShowVideo] = useState(false);
+
+  const toggleVideo = () => {
+    setShowVideo(!showVideo);
+  };
+
+  const [showVideo2, setShowVideo2] = useState(false);
+
+  const toggleVideo2 = () => {
+    setShowVideo2(!showVideo);
+  };
+
+  const [showVideo3, setShowVideo3] = useState(false);
+
+  const toggleVideo3 = () => {
+    setShowVideo3(!showVideo);
+  };
+
+  const [showVideo4, setShowVideo4] = useState(false);
+
+  const toggleVideo4 = () => {
+    setShowVideo4(!showVideo);
+  };
+
   const [ref, inView] = useInView({
     threshold: 0.1,
   });
@@ -75,7 +100,7 @@ export default function SecondPage() {
           }}
         />
 
-        <p className="text-lg text-gray-400 mb-8">
+        <p className="text-lg text-gray-400 mb-8 italic ">
           <motion.span
             whileInView={{
               opacity: 1,
@@ -93,54 +118,110 @@ export default function SecondPage() {
         <section className="mt-10">
           {/* I want to show 4 images 2 images per row */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="relative">
-              <Image
-                src="/img1.jpg"
-                alt="image1"
-                className="rounded-lg"
-                width={650}
-                height={400}
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center">
-                <FaPlay className="text-white text-3xl" />
-              </div>
+            <div className="relative rounded-md ">
+              {showVideo2 ? (
+                <iframe
+                  width="630"
+                  height="350"
+                  src="https://www.youtube.com/embed/XwYiLvL_MP4?si=7YSJ9GC9kWQuYRa-"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <div>
+                  <Image
+                    src="/img1.jpg"
+                    alt="image1"
+                    className="rounded-lg"
+                    width={650}
+                    height={400}
+                  />
+                    <div
+                      className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center"
+                      onClick={toggleVideo2}
+                    >
+                      <FaPlay className="text-white text-3xl cursor-pointer" />
+                    </div>
+                  </div>
+              )}
             </div>
-            <div className="relative">
-              <Image
-                src="/img2.jpg"
-                alt="image2"
-                className="rounded-lg"
-                width={650}
-                height={400}
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center">
-                <FaPlay className="text-white text-3xl" />
-              </div>
+
+            <div className="relative rounded-md ">
+              {showVideo ? (
+                <iframe
+                  width="630"
+                  height="350" src="https://www.youtube.com/embed/GQpjDQsQFsU?si=6Ftr1jzVxtCAkQ7D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              ) : (
+                <div>
+                  <Image
+                    src="/img2.jpg"
+                      alt="image1"
+                      className="rounded-lg"
+                      width={650}
+                      height={400}
+                    />
+                    <div
+                      className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center"
+                      onClick={toggleVideo}
+                    >
+                      <FaPlay className="text-white text-3xl cursor-pointer" />
+                    </div>
+                  </div>
+              )}
             </div>
-            <div className="relative">
-              <Image
-                src="/img3.jpg"
-                alt="image3"
-                className="rounded-lg"
-                width={650}
-                height={400}
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center">
-                <FaPlay className="text-white text-3xl" />
-              </div>
+
+
+            <div className="relative rounded-md ">
+              {showVideo3 ? (
+                <iframe
+                  width="630"
+                  height="350" src="https://www.youtube.com/embed/FuK0J_K2Fas?si=V8jwVIOIhns_cfq1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              ) : (
+                <div>
+                  <Image
+                    src="/img3.jpg"
+                      alt="image1"
+                      className="rounded-lg"
+                      width={650}
+                      height={400}
+                    />
+                    <div
+                      className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center"
+                      onClick={toggleVideo3}
+                    >
+                      <FaPlay className="text-white text-3xl cursor-pointer" />
+                    </div>
+                  </div>
+              )}
             </div>
-            <div className="relative">
-              <Image
-                src="/img4.jpg"
-                alt="image4"
-                className="rounded-lg"
-                width={650}
-                height={400}
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center">
-                <FaPlay className="text-white text-3xl" />
-              </div>
+
+
+            <div className="relative rounded-md ">
+              {showVideo4 ? (
+                <iframe
+                  width="630"
+                  height="350" src="https://www.youtube.com/embed/1dzFhEtHxII?si=6DezeErSGwWaCyuB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              ) : (
+                <div>
+                  <Image
+                    src="/img4.jpg"
+                      alt="image1"
+                      className="rounded-lg"
+                      width={650}
+                      height={400}
+                    />
+                    <div
+                      className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center"
+                      onClick={toggleVideo4}
+                    >
+                      <FaPlay className="text-white text-3xl cursor-pointer" />
+                    </div>
+                  </div>
+              )}
             </div>
+
           </div>
         </section>
 
@@ -242,13 +323,28 @@ export default function SecondPage() {
           <div
             className="flex items-center justify-center gap-10"
           >
-            <SiReact className="text-4xl text-white" />
-            <SiMongodb className="text-4xl text-white" />
-            <SiFlask className="text-4xl text-white" />
-            <SiFirebase className="text-4xl text-white" />
-            <SiPython className="text-4xl text-white" />
-            <SiDjango className="text-4xl text-white" />
-            <SiPostgresql className="text-4xl text-white" />
+            <SiReact className="text-4xl text-white
+            hover:text-blue-500 hover:scale-125 hover:translate-y-4 transition
+            duration-300 ease-in-out"
+            />
+            <SiMongodb className="text-4xl text-white
+            hover:text-blue-500 hover:scale-125 hover:translate-y-4 transition
+            duration-300 ease-in-out" />
+            <SiFlask className="text-4xl text-white
+            hover:text-blue-500 hover:scale-125 hover:translate-y-4 transition
+            duration-300 ease-in-out" />
+            <SiFirebase className="text-4xl text-white
+            hover:text-blue-500 hover:scale-125 hover:translate-y-4 transition
+            duration-300 ease-in-out" />
+            <SiPython className="text-4xl text-white
+            hover:text-blue-500 hover:scale-125 hover:translate-y-4 transition
+            duration-300 ease-in-out" />
+            <SiDjango className="text-4xl text-white
+            hover:text-blue-500 hover:scale-125 hover:translate-y-4 transition
+            duration-300 ease-in-out" />
+            <SiPostgresql className="text-4xl text-white
+            hover:text-blue-500 hover:scale-125 hover:translate-y-4 transition
+            duration-300 ease-in-out" />
           </div>
         </section>
 
@@ -286,7 +382,7 @@ export default function SecondPage() {
                   transition: { duration: 2 },
                 }}
               />
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
                 {[
                   {
                     title: "Our Team",
@@ -338,16 +434,21 @@ export default function SecondPage() {
                     initial={{ x: 0, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.7, delay: 0.2 * i }}
-                    className="text-center rounded-lg shadow-lg bg-gray-900 p-6"
+                    className="text-center rounded-lg shadow-lg bg-gray-900 p-6
+                    hover:shadow-xl transition duration-300 ease-in-out hover:scale-90
+                    hover:bg-slate-950
+                    "
                   >
                     {section.icon}
                     <h2 className="text-2xl font-semibold mb-2">
                       {section.title}
                     </h2>
                     <p className="text-lg mb-4">{section.description}</p>
+                    <Link href="/about">
                     <button className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600">
                       Read more
-                    </button>
+                      </button>
+                    </Link>
                   </motion.div>
                 ))}
               </div>

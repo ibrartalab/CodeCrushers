@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FaHome,
   FaUser,
@@ -9,7 +11,27 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
+import emailjs from '@emailjs/browser';
+import { useRef } from "react";
+
+
 export default function Footer() {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_pg8on68', 'template_utnmfwb', form.current, 'H5wSIk8eG7aKNCbQk')
+      .then((result) => {
+        console.log(result.text);
+        alert("You subscribed successfully!");
+      }, (error) => {
+        console.log(error.text);
+        alert("Email not sent!");
+      });
+
+    e.target.reset();
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-8">
       <div className="max-w-7xl mx-auto px-4">
@@ -19,16 +41,16 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-2">
             <h2 className="text-2xl font-semibold mb-4">Follow Us</h2>
             <div className="flex space-x-4">
-              <a href="#">
+              <a href="https://twitter.com/CodeCrusherCo">
                 <FaTwitter className="text-2xl text-blue-500 hover:text-blue-700" />
               </a>
-              <a href="#">
+              <a href="https://www.facebook.com/people/CodeCrusher/61551713522480/">
                 <FaFacebook className="text-2xl text-blue-500 hover:text-blue-700" />
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/codecrusherofficial/about/?viewAsMember=true">
                 <FaLinkedin className="text-2xl text-blue-700 hover:text-blue-900" />
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/codecrushersofficial/">
                 <FaInstagram className="text-2xl text-blue-700 hover:text-blue-900" />
               </a>
             </div>
@@ -70,9 +92,11 @@ export default function Footer() {
                   to your inbox.
                 </p>
 
-                <form className="mt-4">
+                <form className="mt-4" onSubmit={sendEmail}
+                  ref={form}>
                   <input
                     type="email"
+                    name="user_email"
                     className="w-full text-gray-500 px-4 py-2 border border-gray-600 rounded-md focus:outline-none focus:border-blue-500"
                     placeholder="Enter your email"
                   />

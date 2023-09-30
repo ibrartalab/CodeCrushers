@@ -15,31 +15,37 @@ const services = [
     title: "Software Development",
     icon: <FaCode className="text-5xl text-blue-600 mb-4" />,
     description: "We craft custom software solutions to meet your unique needs.",
+    slug: "software-development"
   },
   {
     title: "Web and Mobile Development",
     icon: <FaLaptop className="text-5xl text-blue-600 mb-4" />,
     description: "We build responsive and user-friendly web and mobile apps.",
+    slug: "web-and-mobile-development"
   },
   {
     title: "Cloud Solutions",
     icon: <FaCloud className="text-5xl text-blue-600 mb-4" />,
     description: "We offer scalable cloud services to power your business.",
+    slug: "cloud-solutions"
   },
   {
     title: "UI UX Design",
     icon: <FaPen className="text-5xl text-blue-600 mb-4" />,
     description: "Our designers create intuitive and appealing user interfaces.",
+    slug: "ui-ux-design"
   },
   {
     title: "Quality Assurance and Testing",
     icon: <FaCheck className="text-5xl text-blue-600 mb-4" />,
     description: "We ensure the quality and reliability of your software.",
+    slug: "quality-assurance-and-testing"
   },
   {
     title: "SEO and Digital Marketing",
     icon: <FaBuilding className="text-5xl text-blue-600 mb-4" />,
     description: "We ensure the quality and reliability of your software.",
+    slug: "seo-and-digital-marketing"
   },
 ];
 
@@ -50,11 +56,6 @@ const softwareDevelopmentPoints = [
   "We build for 20x of your immediate needs. We don't want your product to bottleneck as your business grows.",
   "We believe in Unit Testing. We write code that tests code.",
 ];
-
-// create slugs for each service
-services.forEach((service) => {
-  service.slug = service.title.toLowerCase().replace(/ /g, "-");
-});
 
 
 export default function ServicesPage() {

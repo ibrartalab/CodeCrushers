@@ -8,9 +8,16 @@ import { DiNodejs } from 'react-icons/di';
 import { useInView } from 'react-intersection-observer';
 import { BsStars } from 'react-icons/bs';
 import { BsArrowRightCircleFill } from 'react-icons/bs';
+import { useState } from 'react';
+
 
 const ServicePage = ({ params }) => {
-    const text = "Code Crushers";
+    const [showVideo, setShowVideo] = useState(false);
+
+    const toggleVideo = () => {
+        setShowVideo(!showVideo);
+    };
+
     const [ref2, inView2] = useInView({
         threshold: 0.1,
     });
@@ -32,6 +39,7 @@ const ServicePage = ({ params }) => {
             x: 0,
         },
     };
+
 
     const serviceData = {
         title: "Software Development",
@@ -87,6 +95,25 @@ const ServicePage = ({ params }) => {
         controls.start("visible");
     }, []);
 
+    const slug = params.service;
+    const [serviceTitle, setServiceTitle] = React.useState("");
+
+    useEffect(() => {
+        if (slug === "software-development") {
+            setServiceTitle("Software Development");
+        } else if (slug === "web-and-mobile-development") {
+            setServiceTitle("Web and Mobile Development");
+        } else if (slug === "ui-ux-design") {
+            setServiceTitle("UI/UX Design");
+        } else if (slug === "quality-assurance-and-testing") {
+            setServiceTitle("Quality Assurance and Testing");
+        } else if (slug === "seo-and-digital-marketing") {
+            setServiceTitle("SEO and Digital Marketing");
+        } else if (slug === "cloud-solutions") {
+            setServiceTitle("Cloud Solutions");
+        }
+    }, [slug]);
+
     return (
         <div className="flex flex-col items-center min-h-screen py-2 bg-[#060B27] text-white">
             <motion.h1
@@ -101,7 +128,7 @@ const ServicePage = ({ params }) => {
                     animate="animate"
                     className="inline-block"
                 >
-                    {serviceData.title.split("").map((char, index) => (
+                    {serviceTitle.split("").map((char, index) => (
                         <motion.span
                             key={index}
                             variants={letterVariants}
@@ -113,19 +140,28 @@ const ServicePage = ({ params }) => {
                 </motion.span>
             </motion.h1>
             <p className="mt-8 text-center text-lg">{serviceData.description}</p>
-            <div className="relative mt-8 mb-20">
-                <Image
-                    src={serviceData.url}
-                    alt={serviceData.title}
-                    className="rounded-xl"
-                    width={800}
-                    height={300}
-                />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <FaPlay className="text-5xl text-white" />
-                </div>
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#060B27] to-transparent" />
+            <div className="relative rounded-md mt-20 mb-12 ">
+                {showVideo ? (
+                    <iframe width="650" height="370" src="https://www.youtube.com/embed/GQpjDQsQFsU?si=22dwxmSKkQsNjdru" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                ) : (
+                    <div>
+                        <Image
+                                src="/img1.jpg"
+                                alt="image1"
+                                className="rounded-lg"
+                                width={650}
+                                height={400}
+                            />
+                            <div
+                                className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center"
+                                onClick={toggleVideo}
+                            >
+                                <FaPlay className="text-white text-3xl cursor-pointer" />
+                            </div>
+                    </div>
+                )}
             </div>
+
 
             {/* Section for languages */}
             <section className="flex flex-col items-center justify-center mb-10">
@@ -215,4 +251,3 @@ hover:outline-2 hover:outline-white"> {/* Updated text-align to left */}
 };
 
 export default ServicePage;
-
