@@ -14,6 +14,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
 
+
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -29,6 +31,7 @@ export default function Navbar() {
     }
   };
 
+
   const fadeInUp = {
     initial: { opacity: 0, y: 10 },
     animate: { opacity: 1, y: 0 },
@@ -37,14 +40,13 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-[rgba(6, 11, 39, ${scrolling ? "0.9" : "0"
-        })} backdrop-blur-lg backdrop-filter transition-all duration-500 ${scrolling ? "h-16" : "py-2"
+      className={`fixed top-0 left-0 right-0 z-50 bg-[rgba(6, 11, 39,${scrolling ? "0.9" : "0"})]} backdrop-blur-lg  backdrop-filter transition-all duration-500 ${scrolling ? "h-fit" : "py-2"
         } border-b border-gray-800 shadow-md w-full`}
       initial={{ y: -50 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto max-w-7xl px-4 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-4 flex items-center justify-between blur-1">
         <motion.div
           className="flex items-center"
           variants={fadeInUp}
@@ -63,19 +65,25 @@ export default function Navbar() {
         <div className="lg:hidden">
           <FaBars
             className="text-white text-3xl cursor-pointer"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+
+            onClick={() => {
+              setMobileMenuOpen(!mobileMenuOpen)
+
+            }}
+
+
           />
         </div>
 
         <motion.div
-          className={`lg:flex space-x-8 ${mobileMenuOpen ? "block" : "hidden"}`}
+          className={`lg:flex  space-x-8 ${mobileMenuOpen ? "block" : "hidden"}`}
           variants={fadeInUp}
           initial="initial"
           animate="animate"
         >
           <Link href="/">
             <motion.span
-              className="flex items-center text-gray-400 text-sm hover:underline hover:text-white text-center"
+              className="flex items-center text-gray-400 text-sm hover:underline hover:text-white"
               whileHover={{ scale: 1.1 }}
             >
               <AiOutlineHome className="inline-block mr-1" />
@@ -85,7 +93,7 @@ export default function Navbar() {
 
           <Link href="/services">
             <motion.span
-              className="flex items-center text-gray-400 text-sm hover:underline hover:text-white text-center"
+              className="flex items-center text-gray-400 text-sm hover:underline hover:text-white"
               whileHover={{ scale: 1.1 }}
             >
               <AiOutlineUsergroupAdd className="inline-block mr-1" />
@@ -95,7 +103,7 @@ export default function Navbar() {
 
           <Link href="/projects">
             <motion.span
-              className="flex items-center text-gray-400 text-sm hover:underline hover:text-white text-center"
+              className="flex items-center text-gray-400 text-sm hover:underline hover:text-white"
               whileHover={{ scale: 1.1 }}
             >
               <GiFilmProjector className="inline-block mr-1" />
@@ -125,11 +133,11 @@ export default function Navbar() {
         </motion.div>
 
         <Link href="/contact">
-        <motion.button
-          className="bg-[#02CC67] text-xs text-white px-4 py-2 rounded-full hover:bg-green-600"
-          whileHover={{ scale: 1.1 }}
-        >
-          Contact
+          <motion.button
+            className="bg-[#02CC67] text-xs text-white px-4 py-2 rounded-full hover:bg-green-600"
+            whileHover={{ scale: 1.1 }}
+          >
+            Contact
           </motion.button>
         </Link>
       </div>

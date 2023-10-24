@@ -41,6 +41,7 @@ export default function MainPage() {
 
   return (
     <motion.div
+    id="main"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
